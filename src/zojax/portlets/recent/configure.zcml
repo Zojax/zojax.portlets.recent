@@ -1,0 +1,42 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:i18n="http://namespaces.zope.org/i18n"
+   xmlns:zojax="http://namespaces.zope.org/zojax"
+   i18n_domain="zojax.portlets.recent">
+
+  <!-- recently added/changed items portlet -->
+  <zojax:portlet
+     name="portlet.recentlyadded"
+     title="Recently added items"
+     description="Portlet list recently added items in the site."
+     schema=".interfaces.IRecentlyAddedPortlet"
+     class=".portlet.RecentlyAddedPortlet" />
+
+  <zojax:pagelet
+     type="portlet.view"
+     for=".portlet.RecentlyAddedPortlet"
+     template="portlet-added.pt" />
+
+  <zojax:portlet
+     name="portlet.recentlychanged"
+     title="Recently changed items"
+     description="Portlet list recently changed items in the site."
+     schema=".interfaces.IRecentlyChangedPortlet"
+     class=".portlet.RecentlyChangedPortlet" />
+
+  <zojax:pagelet
+     type="portlet.view"
+     for=".portlet.RecentlyChangedPortlet"
+     template="portlet-changed.pt" />
+
+  <utility
+     name="zojax.portlets.recent-portaltypes"
+     factory=".vocabulary.PortletTypesVocabulary" />
+
+  <subscriber handler=".portlet.addedHandler" />
+  <subscriber handler=".portlet.modifiedHandler" />
+
+  <!-- translations -->
+  <i18n:registerTranslations directory="locales"/>
+
+</configure>

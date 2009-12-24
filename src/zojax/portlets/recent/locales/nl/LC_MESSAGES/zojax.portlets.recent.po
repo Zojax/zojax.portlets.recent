@@ -1,0 +1,63 @@
+##############################################################################
+#
+# Copyright (c) 2009 Zope Foundation and Contributors.
+# All Rights Reserved.
+#
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
+##############################################################################
+msgid ""
+msgstr ""
+"Project-Id-Version: Development/Unknown\n"
+"POT-Creation-Date: Tue Oct 28 11:38:17 2008\n"
+"PO-Revision-Date: 2008-10-28 09:57+0100\n"
+"Last-Translator: F. Kooman <fkooman@tuxed.net>\n"
+"Language-Team: Zope 3 Developers <zope3-dev@zope.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: zope/app/locales/extract.py\n"
+
+#: src/zojax/portlets/recent/configure.zcml:10
+msgid "Portlet list recently added items in the site."
+msgstr "Module om recent toegevoegde items te bekijken."
+
+#: src/zojax/portlets/recent/configure.zcml:10
+#: src/zojax/portlets/recent/portlet-added.pt:2
+msgid "Recently added items"
+msgstr "Recent toegevoegde items"
+
+#: src/zojax/portlets/recent/configure.zcml:18
+msgid "Portlet list recently changed items in the site."
+msgstr "Module om recent gewijzigde items te bekijken."
+
+#: src/zojax/portlets/recent/configure.zcml:18
+#: src/zojax/portlets/recent/portlet-changed.pt:2
+msgid "Recently changed items"
+msgstr "Recent gewijzigde items"
+
+#: src/zojax/portlets/recent/interfaces.py:28
+msgid "Number of items"
+msgstr "Aantal items"
+
+#: src/zojax/portlets/recent/interfaces.py:29
+msgid "Number of items to display"
+msgstr "Aantal weer te geven items"
+
+#: src/zojax/portlets/recent/interfaces.py:34
+msgid "Portal types"
+msgstr "Moduletypes"
+
+#: src/zojax/portlets/recent/interfaces.py:35
+msgid "Portal types to list in portlet."
+msgstr "Moduletypes om weer te geven in module."
+
+#: src/zojax/portlets/recent/vocabulary.py:40
+msgid "All portal types"
+msgstr "Alle website types"
+
