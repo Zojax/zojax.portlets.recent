@@ -1,0 +1,150 @@
+====================================
+Recently added/changed items portlet
+====================================
+
+    >>> import time
+    >>> from zope import component, interface
+    >>> from zope.testbrowser.testing import Browser
+    >>> from zope.app.intid import IntIds
+    >>> from zope.app.intid.interfaces import IIntIds
+    >>> from zope.app.testing.functional import getRootFolder
+    >>> from zojax.catalog.catalog import Catalog, ICatalog
+    >>> from zojax.extensions.interfaces import IExtensible
+    >>> from zojax.portlets.recent.tests.tests import Folder
+
+    >>> root = getRootFolder()
+    >>> interface.alsoProvides(root, IExtensible)
+
+    >>> root['folder'] = Folder()
+    >>> sm = root.getSiteManager()
+    >>> root['intids'] = IntIds()
+    >>> id = root['intids'].register(root)
+    >>> sm.registerUtility(root['intids'], IIntIds)
+
+    >>> root['catalog'] = Catalog()
+    >>> sm.registerUtility(root['catalog'], ICatalog)
+
+    >>> actor = Browser()
+    >>> actor.handleErrors = False
+    >>> actor.addHeader("Authorization", "Basic mgr:mgrpw")
+
+set portlets manager
+
+    >>> actor.open("http://localhost/++extensions++/")
+    >>> actor.getLink('Portlets').click()
+    >>> actor.getLink('Left column portlets').click()
+    >>> actor.open('http://localhost/++extensions++/portlets/columns.left/?form.widgets.portletIds:list=portlet.recentlyadded&form.widgets.portletIds:list=portlet.recentlychanged&form.buttons.save=Save&form.widgets.status=1')
+
+add content
+
+    >>> admin = Browser()
+    >>> admin.handleErrors = False
+    >>> admin.addHeader("Authorization", "Basic mgr:mgrpw")
+    >>> admin.open("http://localhost/folder/+/")
+    >>> admin.getLink('Content').click()
+    >>> admin.getControl('Title').value = u'Test content'
+    >>> admin.getControl(name="content.add.buttons.add").click()
+
+    >>> time.sleep(2)
+    >>> admin.open("http://localhost/folder/+/")
+    >>> admin.getLink('Folder').click()
+    >>> admin.getControl('Title').value = u'Test folder'
+    >>> admin.getControl(name="content.add.buttons.add").click()
+
+
+check portlet
+
+    >>> user = Browser()
+    >>> user.handleErrors = False
+    >>> user.addHeader("Authorization", "Basic mgr:mgrpw")
+    >>> user.open("http://localhost/folder/test.html")
+    >>> print user.contents
+    <html>
+    ...
+    <div class="z-portlet portlet-recentlyadded">
+      <h2 class="z-portlet-header">Recently added items</h2>
+      <div class="z-portlet-body">
+        <div class="z-portlet-item even">
+          <img ... />
+          <a href="http://localhost/folder/Folder/" title="">Test folder</a>
+          <div class="z-portlet-item-details">...</div>
+        </div>
+        <div class="z-portlet-item odd">
+          <img ... />
+          <a href="http://localhost/folder/Content/" title="">Test content</a>
+          <div class="z-portlet-item-details">...</div>
+        </div>
+      </div>
+    </div>
+    <div class="z-portlet portlet-recentlychanged">
+      <h2 class="z-portlet-header">Recently changed items</h2>
+      <div class="z-portlet-body">
+        <div class="z-portlet-item even">
+          <img ... />
+          <a href="http://localhost/folder/Folder/" title="">Test folder</a>
+          <div class="z-portlet-item-details">...</div>
+        </div>
+        <div class="z-portlet-item odd">
+          <img ... />
+          <a href="http://localhost/folder/Content/" title="">Test content</a>
+          <div class="z-portlet-item-details">...</div>
+        </div>
+      </div>
+    </div>
+    ...
+    </html>
+
+
+Filter content type
+
+    >>> actor.open("http://localhost/++extensions++/portlets/columns.left/")
+    >>> actor.getLink('Recently added items').click()
+
+    >>> actor.open('http://localhost/++extensions++/portlets/columns.left/portlet.recentlyadded/?form.widgets.types:list=zojax.folder&form.widgets.number=7&form.buttons.save=Save')
+
+    >>> user.reload()
+    >>> print user.contents
+    <html>
+    ...
+    <div class="z-portlet portlet-recentlyadded">
+      <h2 class="z-portlet-header">Recently added items</h2>
+      <div class="z-portlet-body">
+        <div class="z-portlet-item even">
+          <img ... />
+          <a href="http://localhost/folder/Folder/" title="">Test folder</a>
+          <div class="z-portlet-item-details">...</div>
+        </div>
+      </div>
+    </div>
+    ...
+    </html>
+
+
+Last modified first
+
+    >>> time.sleep(62)
+    >>> admin.open("http://localhost/folder/Content/context.html")
+    >>> admin.getControl('Title').value = u'New content'
+    >>> admin.getControl(name="content.edit.buttons.save").click()
+
+    >>> user.reload()
+    >>> print user.contents
+    <html>
+    ...
+    <div class="z-portlet portlet-recentlychanged">
+      <h2 class="z-portlet-header">Recently changed items</h2>
+      <div class="z-portlet-body">
+        <div class="z-portlet-item even">
+          <img ... />
+          <a href="http://localhost/folder/Content/" title="">New content</a>
+          <div class="z-portlet-item-details">...</div>
+        </div>
+        <div class="z-portlet-item odd">
+          <img ... />
+          <a href="http://localhost/folder/Folder/" title="">Test folder</a>
+          <div class="z-portlet-item-details">...</div>
+        </div>
+      </div>
+    </div>
+    ...
+    </html>

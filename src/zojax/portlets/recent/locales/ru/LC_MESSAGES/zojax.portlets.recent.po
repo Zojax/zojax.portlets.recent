@@ -1,0 +1,63 @@
+##############################################################################
+#
+# Copyright (c) 2009 Zope Foundation and Contributors.
+# All Rights Reserved.
+#
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
+##############################################################################
+msgid ""
+msgstr ""
+"Project-Id-Version: Development/Unknown\n"
+"POT-Creation-Date: Tue Oct 28 11:38:17 2008\n"
+"PO-Revision-Date: 2008-10-28 17:39+0600\n"
+"Last-Translator: Nikolay Kim <fafhrd91@gmail.com>\n"
+"Language-Team: Zope 3 Developers <zope3-dev@zope.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: zope/app/locales/extract.py\n"
+
+#: src/zojax/portlets/recent/configure.zcml:10
+msgid "Portlet list recently added items in the site."
+msgstr "Портлет содержит список последних добавленных элементов."
+
+#: src/zojax/portlets/recent/configure.zcml:10
+#: src/zojax/portlets/recent/portlet-added.pt:2
+msgid "Recently added items"
+msgstr "Добавленные элементы"
+
+#: src/zojax/portlets/recent/configure.zcml:18
+msgid "Portlet list recently changed items in the site."
+msgstr "Портлет содержит список последних измененных элементов."
+
+#: src/zojax/portlets/recent/configure.zcml:18
+#: src/zojax/portlets/recent/portlet-changed.pt:2
+msgid "Recently changed items"
+msgstr "Измененные элементы"
+
+#: src/zojax/portlets/recent/interfaces.py:28
+msgid "Number of items"
+msgstr "Количество элементов"
+
+#: src/zojax/portlets/recent/interfaces.py:29
+msgid "Number of items to display"
+msgstr "Количество элементов для просмотра"
+
+#: src/zojax/portlets/recent/interfaces.py:34
+msgid "Portal types"
+msgstr "Типы элементов"
+
+#: src/zojax/portlets/recent/interfaces.py:35
+msgid "Portal types to list in portlet."
+msgstr "Показывать только заданные типы элементов."
+
+#: src/zojax/portlets/recent/vocabulary.py:40
+msgid "All portal types"
+msgstr "Все типы"
+

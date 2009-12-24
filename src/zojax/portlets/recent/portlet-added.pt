@@ -1,0 +1,16 @@
+<div class="z-portlet portlet-recentlyadded" 
+     i18n:domain="zojax.portlets.recent">
+  <h2 class="z-portlet-header" i18n:translate="">Recently added items</h2>
+
+  <div class="z-portlet-body">
+    <div tal:repeat="item context/recentItems"
+	 tal:attributes="class python:repeat['item'].odd() and
+			 'z-portlet-item odd' or 'z-portlet-item even'">
+      <tal:block content="structure item/icon" />
+      <a tal:content="item/title"
+	 tal:attributes="href item/url; title item/description"></a>
+      <div class="z-portlet-item-details"
+	   tal:content="structure formatter:fancyDatetime,short:item/created"></div>
+    </div>
+  </div>
+</div>
