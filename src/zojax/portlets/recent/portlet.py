@@ -23,9 +23,11 @@ from zope.traversing.browser import absoluteURL
 from zope.dublincore.interfaces import IDCPublishing, IDCTimes
 from zope.app.container.interfaces import IObjectMovedEvent
 from zope.lifecycleevent.interfaces import IObjectModifiedEvent
+from zope.app.intid.interfaces import IIntIds
 
 from zojax.catalog.interfaces import ICatalog
 from zojax.content.type.interfaces import IItem, IPortalType, IDraftedContent
+from zojax.content.space.utils import getSpace
 
 from zojax.cache.view import cache
 from zojax.cache.tag import SiteTag
@@ -63,21 +65,31 @@ class RecentPortlet(object):
 
         self.site = getSite()
         catalog = queryUtility(ICatalog)
+        ids = queryUtility(IIntIds)
 
         if catalog is not None:
-            if '__all__' in self.types:
-                results = catalog.searchResults(
-                    searchContext=(self.site,),
-                    typeType={'any_of': ('Portal type',)},
-                    isDraft={'any_of': (False,)},
-                    sort_order='reverse', sort_on=self.index)
-            else:
-                results = catalog.searchResults(
-                    searchContext=(self.site,),
-                    sort_order='reverse', sort_on=self.index,
-                    type={'any_of': self.types},
-                    isDraft={'any_of': (False,)},)
+            query = dict(searchContext=(self.site,),
+                     isDraft={'any_of': (False,)},
+                     sort_order='reverse', sort_on=self.index,
+                     )
 
+            if '__all__' in self.types:
+                query['typeType']={'any_of': ('Portal type',)}
+            else:
+                query['type']={'any_of': self.types}
+            
+            try:
+                context = self.manager.view.maincontext
+            except AttributeError:
+                context = self.context
+                
+            if self.spaceMode == 2:
+                query['contentSpace'] = {'any_of': [ids.queryId(getSpace(context))]}
+            elif self.spaceMode == 3:
+                query['traversablePath'] = {'any_of':(getSpace(context),)}
+
+            results = catalog.searchResults(**query)
+            
             if results:
                 self.items = results
 

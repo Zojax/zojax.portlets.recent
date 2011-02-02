@@ -19,10 +19,11 @@ from zope import interface
 from zope.component import getUtilitiesFor
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
+from zope.i18nmessageid import MessageFactory
 
 from zojax.content.type.interfaces import IPortalType
 
-from interfaces import _
+_ = MessageFactory(u'zojax.portlets.recent')
 
 
 class PortletTypesVocabulary(object):
@@ -39,3 +40,11 @@ class PortletTypesVocabulary(object):
         return SimpleVocabulary(
             [SimpleTerm('__all__', '__all__', _('All portal types'))] +
             [SimpleTerm(name, name, title) for title, name in pt])
+        
+
+spaceModesVocabulary = SimpleVocabulary((
+        SimpleTerm(1, '1', _(u'All spaces')),
+        SimpleTerm(2, '2', _(u'Current space')),
+        SimpleTerm(3, '3', _(u"Current space and subspaces")),
+        ))
+
