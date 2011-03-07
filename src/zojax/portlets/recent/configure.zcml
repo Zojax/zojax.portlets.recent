@@ -32,6 +32,15 @@
   <utility
      name="zojax.portlets.recent-portaltypes"
      factory=".vocabulary.PortletTypesVocabulary" />
+     
+  <utility
+     name="zojax.portlets.recent-"
+     factory=".vocabulary.PortletTypesVocabulary" />
+     
+  <utility
+     name="zojax.portlets.recent-spacemodes"
+     component=".vocabulary.spaceModesVocabulary"
+     provides="zope.schema.interfaces.IVocabularyFactory" />
 
   <subscriber handler=".portlet.addedHandler" />
   <subscriber handler=".portlet.modifiedHandler" />

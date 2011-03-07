@@ -42,7 +42,8 @@ class PortletTypesVocabulary(object):
             [SimpleTerm(name, name, title) for title, name in pt])
         
 
-spaceModesVocabulary = SimpleVocabulary((
+def spaceModesVocabulary(context):
+    return SimpleVocabulary((
         SimpleTerm(1, '1', _(u'All spaces')),
         SimpleTerm(2, '2', _(u'Current space')),
         SimpleTerm(3, '3', _(u"Current space and subspaces")),

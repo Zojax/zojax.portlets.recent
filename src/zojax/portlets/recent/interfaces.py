@@ -19,8 +19,6 @@ from zope import interface, schema
 from zope.i18nmessageid import MessageFactory
 from zojax.widget.radio.field import RadioChoice
 
-from vocabulary import spaceModesVocabulary
-
 _ = MessageFactory(u'zojax.portlets.recent')
 
 
@@ -44,7 +42,7 @@ class IRecentPortlet(interface.Interface):
     spaceMode = RadioChoice(
         title = _(u'Space mode'),
         default = 1,
-        vocabulary=spaceModesVocabulary,
+        vocabulary='zojax.portlets.recent-spacemodes',
         required = True)
 
 
