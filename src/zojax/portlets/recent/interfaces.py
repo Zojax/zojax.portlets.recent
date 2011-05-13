@@ -24,6 +24,11 @@ _ = MessageFactory(u'zojax.portlets.recent')
 
 class IRecentPortlet(interface.Interface):
     """ recent portlet """
+    
+    label = schema.TextLine(
+        title = _(u'Label'),
+        default = u'',
+        required = False)
 
     number = schema.Int(
         title = _(u'Number of items'),

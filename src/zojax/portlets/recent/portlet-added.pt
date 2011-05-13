@@ -1,6 +1,6 @@
 <div class="z-portlet portlet-recentlyadded" 
      i18n:domain="zojax.portlets.recent">
-  <h2 class="z-portlet-header" i18n:translate="">Recently added items</h2>
+  <h2 class="z-portlet-header" i18n:translate="" tal:content="context/label|context/title|default">Title</h2>
 
   <div class="z-portlet-body">
     <div tal:repeat="item context/recentItems"
