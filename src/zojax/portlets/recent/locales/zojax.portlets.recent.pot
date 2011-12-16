@@ -1,0 +1,81 @@
+##############################################################################
+#
+# Copyright (c) 2003-2004 Zope Corporation and Contributors.
+# All Rights Reserved.
+#
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
+##############################################################################
+msgid ""
+msgstr ""
+"Project-Id-Version: Development/Unknown\n"
+"POT-Creation-Date: Sun Dec 11 10:50:04 2011\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Zope 3 Developers <zope3-dev@zope.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: zope/app/locales/extract.py\n"
+
+#: src/zojax/portlets/recent/configure.zcml:20
+msgid "Recently changed items"
+msgstr ""
+
+#: src/zojax/portlets/recent/configure.zcml:20
+msgid "Portlet list recently changed items in the site."
+msgstr ""
+
+#: src/zojax/portlets/recent/configure.zcml:8
+msgid "Portlet list recently added items in the site."
+msgstr ""
+
+#: src/zojax/portlets/recent/configure.zcml:8
+msgid "Recently added items"
+msgstr ""
+
+#: src/zojax/portlets/recent/interfaces.py:29
+msgid "Label"
+msgstr ""
+
+#: src/zojax/portlets/recent/interfaces.py:34
+msgid "Number of items"
+msgstr ""
+
+#: src/zojax/portlets/recent/interfaces.py:35
+msgid "Number of items to display"
+msgstr ""
+
+#: src/zojax/portlets/recent/interfaces.py:40
+msgid "Portal types"
+msgstr ""
+
+#: src/zojax/portlets/recent/interfaces.py:41
+msgid "Portal types to list in portlet."
+msgstr ""
+
+#: src/zojax/portlets/recent/interfaces.py:48
+msgid "Space mode"
+msgstr ""
+
+#: src/zojax/portlets/recent/vocabulary.py:41
+msgid "All portal types"
+msgstr ""
+
+#: src/zojax/portlets/recent/vocabulary.py:47
+msgid "All spaces"
+msgstr ""
+
+#: src/zojax/portlets/recent/vocabulary.py:48
+msgid "Current space"
+msgstr ""
+
+#: src/zojax/portlets/recent/vocabulary.py:49
+msgid "Current space and subspaces"
+msgstr ""
+
