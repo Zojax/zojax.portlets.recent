@@ -61,36 +61,31 @@ check portlet
     >>> print user.contents
     <html>
     ...
-    <div class="z-portlet portlet-recentlyadded">
-      <h2 class="z-portlet-header">Recently added items</h2>
       <div class="z-portlet-body">
         <div class="z-portlet-item even">
-          <img ... />
+          <img ...
           <a href="http://localhost/folder/Folder/" title="">Test folder</a>
           <div class="z-portlet-item-details">...</div>
-        </div>
-        <div class="z-portlet-item odd">
-          <img ... />
+        </div> <div class="z-portlet-item odd">
+          <img ...
           <a href="http://localhost/folder/Content/" title="">Test content</a>
           <div class="z-portlet-item-details">...</div>
         </div>
       </div>
-    </div>
-    <div class="z-portlet portlet-recentlychanged">
-      <h2 class="z-portlet-header">Recently changed items</h2>
+    </div></div>
+    ...
+    <BLANKLINE>
+      <h2 class="z-portlet-header"></h2>
+    <BLANKLINE>
       <div class="z-portlet-body">
         <div class="z-portlet-item even">
-          <img ... />
+          <img ...
           <a href="http://localhost/folder/Folder/" title="">Test folder</a>
           <div class="z-portlet-item-details">...</div>
-        </div>
-        <div class="z-portlet-item odd">
-          <img ... />
+        </div> <div class="z-portlet-item odd">
+          <img ...
           <a href="http://localhost/folder/Content/" title="">Test content</a>
           <div class="z-portlet-item-details">...</div>
-        </div>
-      </div>
-    </div>
     ...
     </html>
 
@@ -106,16 +101,10 @@ Filter content type
     >>> print user.contents
     <html>
     ...
-    <div class="z-portlet portlet-recentlyadded">
-      <h2 class="z-portlet-header">Recently added items</h2>
-      <div class="z-portlet-body">
-        <div class="z-portlet-item even">
+        <div class="z-portlet-item ...
           <img ... />
           <a href="http://localhost/folder/Folder/" title="">Test folder</a>
           <div class="z-portlet-item-details">...</div>
-        </div>
-      </div>
-    </div>
     ...
     </html>
 
@@ -131,20 +120,15 @@ Last modified first
     >>> print user.contents
     <html>
     ...
-    <div class="z-portlet portlet-recentlychanged">
-      <h2 class="z-portlet-header">Recently changed items</h2>
-      <div class="z-portlet-body">
         <div class="z-portlet-item even">
-          <img ... />
+          <img ...
           <a href="http://localhost/folder/Content/" title="">New content</a>
           <div class="z-portlet-item-details">...</div>
-        </div>
-        <div class="z-portlet-item odd">
-          <img ... />
+        </div> <div class="z-portlet-item odd">
+          <img ...
           <a href="http://localhost/folder/Folder/" title="">Test folder</a>
           <div class="z-portlet-item-details">...</div>
         </div>
-      </div>
-    </div>
     ...
     </html>
+
